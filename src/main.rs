@@ -18,3 +18,15 @@ fn is_palindrome(s: &str) -> bool {
 
     true
 }
+
+fn expand_around_center(chars: &Vec<char>, mut left: isize, mut right: isize) -> (usize, usize) {
+    let n = chars.len() as isize;
+
+    while left >= 0 && right < n && chars[left as usize] == chars[right as usize] {
+        left -= 1;
+        right += 1;
+    }
+
+    // hasil palindrome adalah (left+1, right-1)
+    ((left+1) as usize, (right-1) as usize)
+}
